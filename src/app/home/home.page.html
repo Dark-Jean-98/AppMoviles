@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+      <ion-text color="secondary">
+        <h2>Bienvenido Profe {{usuarioMostrar}}</h2>
+      </ion-text> 
+
+  <ion-card [routerLink]="['/qrprofe']">
+    <ion-card-header>
+      <ion-card-title>{{desRamo1}}</ion-card-title>
+      <ion-card-subtitle>TAV-2024</ion-card-subtitle>
+      <ion-card-subtitle>001</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card [routerLink]="['/qrprofe']">
+    <ion-card-header>
+      <ion-card-title>{{desRamo2}}</ion-card-title>
+      <ion-card-subtitle>TAV-2024</ion-card-subtitle>
+      <ion-card-subtitle>002</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card [routerLink]="['/qrprofe']">
+    <ion-card-header>
+      <ion-card-title>{{desRamo3}}</ion-card-title>
+      <ion-card-subtitle>TAV-2024</ion-card-subtitle>
+      <ion-card-subtitle>003</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-button expand="block" [routerLink]="['/login']">Cerrar Sesión</ion-button>
+ 
+
+
+</ion-content>
