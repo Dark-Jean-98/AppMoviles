@@ -15,6 +15,10 @@ export class ConsumoapiService {
     return this.http.get<any>(this.url + '/profesores/' + idProfesor + '/cursos/' + idCurso)
   }
 
+  obtenerCursosPorProfesor(idProfesor:number){
+    return this.http.get<any>(this.url + '/profesores/' + idProfesor + '/cursos')
+  }
+
   login(usuario: string, pass: string) {Observable<any>
     const body = {
       user: usuario,

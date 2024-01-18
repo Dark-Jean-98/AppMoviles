@@ -25,10 +25,12 @@ export class LOGINPage implements OnInit {
   alumno="Jcastillo";
   passa="5678";
 
-  nombreDocente="";
-  correoDocente ="";
+  nombreDocente!:string;
+  correoDocente!:string ;
 
   validar= false;
+
+  idProfesor! : string ;
 
   login(){
 
@@ -36,29 +38,33 @@ export class LOGINPage implements OnInit {
       const data = response.body;
       this.nombreDocente = data.nombre;
       this.correoDocente = data.correo;
+      this.idProfesor= data.id;
       console.log(data)
+
+      let nav : NavigationExtras = {
+        state: {
+          user : this.nombreDocente,
+          correo : this.correoDocente,
+          idProfesor : this.idProfesor
+        }
+      }
+  
+      if(this.usuario.value.user==this.docente && this.usuario.value.pass==this.password){
+        
+        this.router.navigate(['/home'], nav);
+        this.validar=true;
+      }
+      
+      if(this.usuario.value.user==this.alumno && this.usuario.value.pass==this.passa){
+        this.router.navigate(['/alumno'], nav);
+        this.validar=true;
+  
+      }
+      if (this.validar==false)
+       this.presentAlert();
     })
 
-    let nav : NavigationExtras = {
-      state: {
-        user : this.nombreDocente,
-        correo : this.correoDocente
-      }
-    }
-
-    if(this.usuario.value.user==this.docente && this.usuario.value.pass==this.password){
-      
-      this.router.navigate(['/home'], nav);
-      this.validar=true;
-    }
     
-    if(this.usuario.value.user==this.alumno && this.usuario.value.pass==this.passa){
-      this.router.navigate(['/alumno'], nav);
-      this.validar=true;
-
-    }
-    if (this.validar==false)
-     this.presentAlert();
 
   }
 
