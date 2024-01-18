@@ -19,12 +19,14 @@ export class LOGINPage implements OnInit {
     pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
   });
 
-  nombreDocente="";
-  passd="";
-  correoDocente ="";
-
+  docente="docente";
+  password="password1";
+  
   alumno="Jcastillo";
   passa="5678";
+
+  nombreDocente="";
+  correoDocente ="";
 
   validar= false;
 
@@ -44,8 +46,8 @@ export class LOGINPage implements OnInit {
       }
     }
 
-    console.log(this.usuario.value.user);
-    if(this.usuario.value.user==this.nombreDocente && this.usuario.value.pass==this.passd){
+    if(this.usuario.value.user==this.docente && this.usuario.value.pass==this.password){
+      
       this.router.navigate(['/home'], nav);
       this.validar=true;
     }

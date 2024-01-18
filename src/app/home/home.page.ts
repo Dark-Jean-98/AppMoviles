@@ -13,12 +13,14 @@ export class HomePage {
   desRamo2 = "Inglés";
   desRamo3 = "APP Móviles";
   usuarioMostrar = "";
+  correoMostrar = "";
 
 
   constructor(private activeroute: ActivatedRoute, private router: Router) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.usuarioMostrar = this.router.getCurrentNavigation()?.extras.state?.['user'];
+        this.correoMostrar = this.router.getCurrentNavigation()?.extras.state?.['correo'];
       }
     })
   }
