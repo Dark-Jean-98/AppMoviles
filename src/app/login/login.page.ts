@@ -2,6 +2,9 @@ import { Component ,OnInit } from '@angular/core';
 import { FormGroup ,FormControl,Validators} from '@angular/forms';
 import { Router, ActivatedRoute, NavigationExtras} from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ConsumoapiService } from '../services/consumoapi.service';
+import { AuthguardGuard } from '../guards/authguard.guard';
+
 
 
 @Component({
@@ -16,8 +19,9 @@ export class LOGINPage implements OnInit {
     pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
   });
 
-  profe="Dcares";
-  passp="1234";
+  nombreDocente="";
+  passd="";
+  correoDocente ="";
 
   alumno="Jcastillo";
   passa="5678";
@@ -26,14 +30,22 @@ export class LOGINPage implements OnInit {
 
   login(){
 
+    this.consumoapi.login('docente', 'password1').subscribe(response => {
+      const data = response.body;
+      this.nombreDocente = data.nombre;
+      this.correoDocente = data.correo;
+      console.log(data)
+    })
+
     let nav : NavigationExtras = {
       state: {
-        user : this.usuario.value.user
+        user : this.nombreDocente,
+        correo : this.correoDocente
       }
     }
 
     console.log(this.usuario.value.user);
-    if(this.usuario.value.user==this.profe && this.usuario.value.pass==this.passp){
+    if(this.usuario.value.user==this.nombreDocente && this.usuario.value.pass==this.passd){
       this.router.navigate(['/home'], nav);
       this.validar=true;
     }
@@ -60,7 +72,7 @@ export class LOGINPage implements OnInit {
     await alert.present();
   }
 
-  constructor(private alertController: AlertController, private router: Router) { }
+  constructor(private consumoapi:ConsumoapiService, private auth:AuthguardGuard, private alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }

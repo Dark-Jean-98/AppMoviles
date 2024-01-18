@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { ConsumoapiService } from '../services/consumoapi.service';
 
 @Component({
   selector: 'app-home',
