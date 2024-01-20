@@ -10,32 +10,35 @@
         <h2>Id: {{idMostrar}}</h2>
       </ion-text> 
 
-  <ion-card [routerLink]="['/qrprofe']">
-    <ion-card-header>
-      <ion-card-title>{{desRamo1}}</ion-card-title>
-      <ion-card-subtitle>TAV-2024</ion-card-subtitle>
-      <ion-card-subtitle>001</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+      <ion-list>
+        <ion-item *ngFor="let curso of cursos">
+          <ion-label>
+            <h2>Nombre: {{ curso.nombre }}</h2>
+            <h3>ID: {{ curso.id }}</h3>
+            <h3>Código: {{ curso.codigo }}</h3>
+            <h3>Sección: {{ curso.seccion }}</h3>
+          </ion-label>
+          <ion-button fill="outline" slot="end" (click)="verDetalleCurso(curso.id, curso.nombre)">Ver Detalle</ion-button>
+        </ion-item>
+      </ion-list>
 
-  <ion-card [routerLink]="['/qrprofe']">
-    <ion-card-header>
-      <ion-card-title>{{desRamo2}}</ion-card-title>
-      <ion-card-subtitle>TAV-2024</ion-card-subtitle>
-      <ion-card-subtitle>002</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card [routerLink]="['/qrprofe']">
-    <ion-card-header>
-      <ion-card-title>{{desRamo3}}</ion-card-title>
-      <ion-card-subtitle>TAV-2024</ion-card-subtitle>
-      <ion-card-subtitle>003</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
 
   <ion-button expand="block" [routerLink]="['/login']">Cerrar Sesión</ion-button>
  
 
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+       <ion-modal [keepContentsMounted]="true">
+           <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+           </ng-template>
+       </ion-modal>
+    </ion-title>
+  </ion-toolbar>
+
+</ion-footer>

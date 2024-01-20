@@ -17,7 +17,9 @@ export class HomePage {
   idMostrar!: number;
 
   idProfesor! : number ;
-  cursos! : string ;
+  idCurso! : number ;
+  
+  cursos: any[] = [];
 
   constructor(private consumoapi:ConsumoapiService, private activeroute: ActivatedRoute, private router: Router) {
 
@@ -28,6 +30,17 @@ export class HomePage {
         this.idMostrar = this.router.getCurrentNavigation()?.extras.state?.['idProfesor'];
       }
     })
+  }
+
+  verDetalleCurso(cursoId: number, nombre: string) {
+    let setData: NavigationExtras = {
+      state: {
+        idCurso : cursoId,
+        nombreCurso : nombre,
+        nombreAlumno : nombre
+      }
+    };
+    this.router.navigate(['/qrprofe'],setData);
   }
 
   ngOnInit() {
