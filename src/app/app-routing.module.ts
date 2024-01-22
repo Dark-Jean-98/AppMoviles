@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthguardGuard } from './guards/authguard.guard';
+import { AlumnoguardGuard } from './guards/alumnoguard.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthguardGuard]
   },
   {
     path: '',
@@ -17,12 +20,18 @@ const routes: Routes = [
   },
   {
     path: 'qrprofe',
-    loadChildren: () => import('./qrprofe/qrprofe.module').then( m => m.QRPROFEPageModule)
+    loadChildren: () => import('./qrprofe/qrprofe.module').then( m => m.QRPROFEPageModule),
+    canActivate: [AuthguardGuard]
   },
   {
     path: 'alumno',
-    loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule)
+    loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule),
+    canActivate: [AuthguardGuard]
   },
+  {
+    path: '**',
+    loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
+  }
 ];
 
 @NgModule({

@@ -3,7 +3,9 @@ import { FormGroup ,FormControl,Validators} from '@angular/forms';
 import { Router, ActivatedRoute, NavigationExtras} from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ConsumoapiService } from '../services/consumoapi.service';
-import { AuthguardGuard } from '../guards/authguard.guard';
+import { AuthguardGuard} from '../guards/authguard.guard';
+
+
 
 
 
@@ -50,12 +52,13 @@ export class LOGINPage implements OnInit {
       }
   
       if(this.usuario.value.user==this.docente && this.usuario.value.pass==this.password){
-        
+        this.auth.setAuthenticatedstatus(true);
         this.router.navigate(['/home'], nav);
         this.validar=true;
       }
       
       if(this.usuario.value.user==this.alumno && this.usuario.value.pass==this.passa){
+        this.auth.setAuthenticatedstatus(true);
         this.router.navigate(['/alumno'], nav);
         this.validar=true;
   
