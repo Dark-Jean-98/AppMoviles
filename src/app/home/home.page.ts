@@ -9,9 +9,6 @@ import { ConsumoapiService } from '../services/consumoapi.service';
 })
 export class HomePage {
 
-  desRamo1 = "Matemática";
-  desRamo2 = "Inglés";
-  desRamo3 = "APP Móviles";
   usuarioMostrar = "";
   correoMostrar = "";
   idMostrar!: number;

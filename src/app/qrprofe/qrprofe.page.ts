@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsumoapiService } from '../services/consumoapi.service';
 import { ActivatedRoute, Router, Route } from '@angular/router'; 
 
+
 @Component({
   selector: 'app-qrprofe',
   templateUrl: './qrprofe.page.html',

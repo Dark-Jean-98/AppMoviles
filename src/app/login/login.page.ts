@@ -24,8 +24,9 @@ export class LOGINPage implements OnInit {
   docente="docente";
   password="password1";
   
-  alumno="Jcastillo";
-  passa="5678";
+  alumno="alumno";
+  passa="password2";
+  
 
   nombreDocente!:string;
   correoDocente!:string ;
@@ -42,6 +43,7 @@ export class LOGINPage implements OnInit {
       this.correoDocente = data.correo;
       this.idProfesor= data.id;
       console.log(data)
+      
 
       let nav : NavigationExtras = {
         state: {
