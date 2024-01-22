@@ -1,13 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Detalle Curso</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Detalle Curso</ion-title>
+      <ion-title>QR Alumnos</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-card>
@@ -28,5 +24,20 @@
   </ion-list>
 
 
-  <ion-button expand="block" [routerLink]="['/home']">Guardar</ion-button>
+  <ion-button expand="block" [routerLink]="['/home']">Guardar/Volver</ion-button>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+       <ion-modal [keepContentsMounted]="true">
+           <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+           </ng-template>
+       </ion-modal>
+    </ion-title>
+  </ion-toolbar>
+
+</ion-footer>

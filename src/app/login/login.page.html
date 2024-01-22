@@ -1,5 +1,7 @@
-<ion-header [translucent]="true">
-  
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -23,3 +25,17 @@
   <ion-button expand="block" (click)="login()" >Ingresar</ion-button>
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+       <ion-modal [keepContentsMounted]="true">
+           <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+           </ng-template>
+       </ion-modal>
+    </ion-title>
+  </ion-toolbar>
+
+</ion-footer>

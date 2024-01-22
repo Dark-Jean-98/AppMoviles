@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'alumno',
     loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule),
-    canActivate: [AuthguardGuard]
+    canActivate: [AlumnoguardGuard]
   },
   {
     path: '**',

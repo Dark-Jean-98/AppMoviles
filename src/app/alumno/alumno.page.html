@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Alumno</ion-title>
+    <ion-title>Home Alumno</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,9 +23,19 @@
 
          <ion-button expand="block" [routerLink]="['/login']">Cerrar Sesión</ion-button>
 
-
-  
-   
-  
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+       <ion-modal [keepContentsMounted]="true">
+           <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+           </ng-template>
+       </ion-modal>
+    </ion-title>
+  </ion-toolbar>
+
+</ion-footer>

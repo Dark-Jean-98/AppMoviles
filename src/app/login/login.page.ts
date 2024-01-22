@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, NavigationExtras} from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ConsumoapiService } from '../services/consumoapi.service';
 import { AuthguardGuard} from '../guards/authguard.guard';
-
+import { AlumnoguardGuard } from '../guards/alumnoguard.guard';
 
 
 
@@ -37,7 +37,7 @@ export class LOGINPage implements OnInit {
 
   login(){
 
-    this.consumoapi.login('docente', 'password1').subscribe(response => {
+    this.consumoapi.login(this.usuario.value.user! , this.usuario.value.pass!).subscribe(response => {
       const data = response.body;
       this.nombreDocente = data.nombre;
       this.correoDocente = data.correo;
@@ -60,7 +60,7 @@ export class LOGINPage implements OnInit {
       }
       
       if(this.usuario.value.user==this.alumno && this.usuario.value.pass==this.passa){
-        this.auth.setAuthenticatedstatus(true);
+      this.authalumno.setAuthenticatedstatus(true);
         this.router.navigate(['/alumno'], nav);
         this.validar=true;
   
@@ -85,7 +85,7 @@ export class LOGINPage implements OnInit {
     await alert.present();
   }
 
-  constructor(private consumoapi:ConsumoapiService, private auth:AuthguardGuard, private alertController: AlertController, private router: Router) { }
+  constructor(private authalumno : AlumnoguardGuard, private consumoapi:ConsumoapiService, private auth:AuthguardGuard, private alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }
