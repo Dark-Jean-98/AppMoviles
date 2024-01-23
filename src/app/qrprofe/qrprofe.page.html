@@ -13,8 +13,10 @@
     </ion-card-header>
   </ion-card>
 
+  <qrcode [qrdata]= "strinQr" [width]="380" [errorCorrectionLevel]="'M'"></qrcode>
 
-  <<ion-list>
+
+  <ion-list>
     <ion-list-header>
       Alumnos del Curso: {{ nombreCursoMostrar }}
   </ion-list-header>

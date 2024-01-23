@@ -20,7 +20,8 @@ export class QRPROFEPage implements OnInit {
 
   alumnos: any[] = [];
   alumnosMostrar!: string;
- 
+
+strinQr: any;
 
   constructor(private apiService: ConsumoapiService, private router: Router, private activeroute : ActivatedRoute) { 
 
@@ -29,10 +30,13 @@ export class QRPROFEPage implements OnInit {
         this.idCursoMostrar = this.router.getCurrentNavigation()?.extras.state?.['idCurso'];
         this.nombreCursoMostrar = this.router.getCurrentNavigation()?.extras.state?.['nombreCurso'];
         this.nombreAlumnos = this.router.getCurrentNavigation()?.extras.state?.['alumnos'];
-        
+        const fechaActual: Date = new Date();
+        this.strinQr = this.idCursoMostrar+"-"+fechaActual;
       }
     })
   }
+
+  
 
   ngOnInit() {
     this.apiService.obtenerAlumnosPorCurso(1,this.idCursoMostrar ).subscribe((data: any[]) => {
