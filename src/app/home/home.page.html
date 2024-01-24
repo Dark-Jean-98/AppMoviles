@@ -6,11 +6,13 @@
 
 <ion-content [fullscreen]="true">
 
-      <ion-text color="secondary">
-        <h2>Bienvenido Profe: {{usuarioMostrar}}</h2>
-        <h3>Correo: {{correoMostrar}}</h3>
-        <h4>Id: {{idMostrar}}</h4>
-      </ion-text> 
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title> <h3>Bienvenido Profe: {{usuarioMostrar}}</h3></ion-card-title>
+      <ion-card-subtitle> <h6>Correo: {{correoMostrar}}</h6></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+  </ion-card>
 
       <ion-list>
         <ion-item *ngFor="let curso of cursos">

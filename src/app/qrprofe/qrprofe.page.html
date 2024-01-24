@@ -3,14 +3,17 @@
 <ion-content [fullscreen]="true">
   <ion-header>
     <ion-toolbar>
-      <ion-title>QR Alumnos</ion-title>
+      <ion-title> QR Alumnos</ion-title>
+      <ion-button [routerLink]="['/home']">Volver</ion-button> 
     </ion-toolbar>
   </ion-header>
-  <ion-card>
+  
+  <ion-card color="tertiary">
     <ion-card-header>
-      <h2>Nombre Curso: {{nombreCursoMostrar}}</h2>
-      <h3>ID curso: {{idCursoMostrar}}</h3>
+      <ion-card-title>Curso: {{nombreCursoMostrar}}</ion-card-title>
+      <ion-card-subtitle>ID curso: {{idCursoMostrar}}</ion-card-subtitle>
     </ion-card-header>
+    <ion-card-content> </ion-card-content>
   </ion-card>
 
   <qrcode [qrdata]= "strinQr" [width]="380" [errorCorrectionLevel]="'M'"></qrcode>
@@ -26,7 +29,8 @@
   </ion-list>
 
 
-  <ion-button expand="block" [routerLink]="['/home']">Guardar/Volver</ion-button>
+  <ion-button expand="block" [routerLink]="['/home']">Guardar</ion-button>
+  
 </ion-content>
 
 <ion-footer>

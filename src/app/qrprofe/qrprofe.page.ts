@@ -30,7 +30,7 @@ strinQr: any;
         this.idCursoMostrar = this.router.getCurrentNavigation()?.extras.state?.['idCurso'];
         this.nombreCursoMostrar = this.router.getCurrentNavigation()?.extras.state?.['nombreCurso'];
         this.nombreAlumnos = this.router.getCurrentNavigation()?.extras.state?.['alumnos'];
-        const fechaActual: Date = new Date();
+        const fechaActual = new Date().toISOString().split('T')[0];
         this.strinQr = this.idCursoMostrar+"-"+fechaActual;
       }
     })
