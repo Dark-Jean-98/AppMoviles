@@ -31,15 +31,13 @@ strinQr: any;
         this.nombreCursoMostrar = this.router.getCurrentNavigation()?.extras.state?.['nombreCurso'];
         this.nombreAlumnos = this.router.getCurrentNavigation()?.extras.state?.['alumnos'];
         const fechaActual = new Date().toISOString().split('T')[0];
-        this.strinQr = this.idCursoMostrar+"-"+fechaActual;
+        this.strinQr = this.idCursoMostrar+"-"+this.nombreCursoMostrar+"-"+fechaActual;
       }
     })
   }
 
-  
-
   ngOnInit() {
-    this.apiService.obtenerAlumnosPorCurso(1,this.idCursoMostrar ).subscribe((data: any[]) => {
+    this.apiService.obtenerAlumnosPorCurso(1, this.idCursoMostrar ).subscribe((data: any[]) => {
       this.alumnos = data;
       console.log(this.alumnos);
     });

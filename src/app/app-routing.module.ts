@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthguardGuard } from './guards/authguard.guard';
 import { AlumnoguardGuard } from './guards/alumnoguard.guard';
-import { QRCodeModule } from 'angularx-qrcode';
+import { PhotoComponent } from './views/dispatch/photo/photo.component';
+
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
+  },
+  {
+    path: 'voice',
+    component: PhotoComponent,
   }
 ];
 

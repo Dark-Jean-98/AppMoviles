@@ -14,23 +14,34 @@
   </ion-card>
      
 
-      <ion-button id="present-alert">Escanear</ion-button>
+
+
+     <!-- /* <ion-button id="present-alert">Escanear</ion-button> 
          <ion-alert
           trigger="present-alert"
           header="Código escaneado correctamente"
-          message="Alumno {{alumnoMostrar}}, ha quedado asistente en la clase."
+          message="Alumno {{idAlumnoM}} - {{alumnoMostrar}}, ha quedado asistente en la clase."
           [buttons]="alertButtons" [routerLink]="['/login']"
-         ></ion-alert>
+      ></ion-alert>
 
+    -->
+
+          
+      <ion-button expand="block" (click)="registrarAsistencia()">registrar</ion-button>
+       <!-- <ion-button expand="block" (click)="scan()">Escanear</ion-button> -->
          <ion-button expand="block" [routerLink]="['/login']">Cerrar Sesión</ion-button>
 
+         
+
+
 </ion-content>
+
+
 
 <ion-footer>
   <ion-toolbar>
     <ion-title>
       <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
        <ion-modal [keepContentsMounted]="true">
            <ng-template>
               <ion-datetime id="datetime"></ion-datetime>
@@ -38,5 +49,4 @@
        </ion-modal>
     </ion-title>
   </ion-toolbar>
-
 </ion-footer>

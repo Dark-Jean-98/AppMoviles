@@ -23,6 +23,10 @@ export class ConsumoapiService {
     return this.http.get<any[]>(this.url + 'profesores/' + profesorId + '/cursos/' + cursoId + '/alumnos', this.httpOptions);
   }
 
+  public registrarAsistencia(body: any): Observable<any> {
+    return this.http.post<any>(this.url + 'registrar_asistencia', body, this.httpOptions);
+}
+
   login(usuario: string, pass: string) {Observable<any>
     const body = {
       user: usuario,
